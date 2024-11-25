@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState, useEffect, useCallback } from 'react';
-import { MicroStore } from 'microstate-manager';
+import { MicroStore } from '@mbpz/microstate';
 
 // React Hook for using MicroState
 function useMicroState<T>(store: MicroStore<T>) {

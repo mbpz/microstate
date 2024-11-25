@@ -8,21 +8,21 @@ export default [
     {
         input: 'src/index.ts',
         output: {
-            file: 'dist/microstate-manager.umd.js',
+            file: 'dist/index.umd.js',
             format: 'umd',
-            name: 'MicroStateManager',
+            name: 'MicroState',
             exports: 'named',
             sourcemap: true,
             globals: {
-                'microstate-manager': 'MicroStateManager'
+                '@mbpz/microstate': 'MicroState'
             }
         },
         plugins: [
             typescript({
                 tsconfig: './tsconfig.json',
                 declaration: true,
-                declarationDir: 'dist/types',
-                rootDir: 'src'
+                declarationDir: './dist',
+                exclude: ['examples/**/*']
             }),
             nodeResolve(),
             commonjs(),
@@ -41,25 +41,8 @@ export default [
             typescript({
                 tsconfig: './tsconfig.json',
                 declaration: true,
-                declarationDir: './dist'
-            }),
-            nodeResolve(),
-            commonjs()
-        ]
-    },
-    // CJS build
-    {
-        input: 'src/index.ts',
-        output: {
-            file: 'dist/index.js',
-            format: 'cjs',
-            sourcemap: true
-        },
-        plugins: [
-            typescript({
-                tsconfig: './tsconfig.json',
-                declaration: true,
-                declarationDir: './dist'
+                declarationDir: './dist',
+                exclude: ['examples/**/*']
             }),
             nodeResolve(),
             commonjs()
