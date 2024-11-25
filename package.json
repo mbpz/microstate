@@ -1,0 +1,36 @@
+{
+  "name": "microstate",
+  "version": "1.0.0",
+  "description": "A lightweight state management library",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "rollup -c",
+    "test": "jest",
+    "dev:react": "cd examples/react && npm run dev",
+    "dev:vue": "cd examples/vue && npm run dev",
+    "dev:vanilla": "cd examples/vanilla && npm run dev"
+  },
+  "keywords": [
+    "state-management",
+    "typescript",
+    "react",
+    "vue",
+    "vanilla"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@rollup/plugin-typescript": "^11.1.5",
+    "@types/jest": "^29.5.5",
+    "@types/node": "^20.8.2",
+    "jest": "^29.7.0",
+    "rollup": "^4.0.2",
+    "ts-jest": "^29.1.1",
+    "typescript": "^5.2.2"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "vue": ">=3.0.0"
+  }
+}
