@@ -1,16 +1,31 @@
 {
-  "name": "microstate",
+  "name": "microstate-core",
   "version": "1.0.0",
   "description": "A lightweight state management library",
   "type": "module",
   "main": "dist/index.js",
+  "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
     "build": "rollup -c",
     "test": "jest",
     "dev:react": "cd examples/react && npm run dev",
     "dev:vue": "cd examples/vue && npm run dev",
-    "dev:vanilla": "cd examples/vanilla && npm run dev"
+    "dev:vanilla": "cd examples/vanilla && npm run dev",
+    "prepublishOnly": "npm run build",
+    "prepare": "npm run build"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/microstate.git"
   },
   "keywords": [
     "state-management",
