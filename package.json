@@ -1,5 +1,5 @@
 {
-  "name": "microstate",
+  "name": "microstate-manager",
   "version": "1.0.0",
   "description": "A lightweight state management library",
   "type": "module",

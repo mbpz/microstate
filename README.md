@@ -1,4 +1,4 @@
-# MicroState
+# MicroState Manager
 
 A lightweight, framework-agnostic state management library with comprehensive TypeScript support.
 
@@ -14,13 +14,13 @@ A lightweight, framework-agnostic state management library with comprehensive Ty
 ## Installation
 
 ```bash
-npm install microstate
+npm install microstate-manager
 ```
 
 ## Basic Usage
 
 ```typescript
-import { MicroState } from 'microstate';
+import { MicroStore } from 'microstate-manager';
 
 // Define your state type
 interface CounterState {
@@ -35,7 +35,7 @@ const initialState: CounterState = {
 };
 
 // Create store instance
-const store = new MicroState<CounterState>(initialState);
+const store = new MicroStore<CounterState>(initialState);
 
 // Add middleware (optional)
 store.use((state, action) => {
@@ -79,7 +79,7 @@ store.dispatch({ type: 'DECREMENT' });
 ### React Example
 
 ```typescript
-import { MicroState } from 'microstate';
+import { MicroStore } from 'microstate-manager';
 import { useEffect, useState } from 'react';
 
 // Define state type
@@ -89,13 +89,13 @@ interface TodoState {
 }
 
 // Create store
-const todoStore = new MicroState<TodoState>({
+const todoStore = new MicroStore<TodoState>({
   todos: [],
   filter: 'all'
 });
 
 // Custom hook for using MicroState
-function useMicroState<T>(store: MicroState<T>) {
+function useMicroState<T>(store: MicroStore<T>) {
   const [state, setState] = useState(store.getState());
 
   useEffect(() => {
@@ -150,7 +150,7 @@ function TodoApp() {
 ### Vue Example
 
 ```typescript
-import { MicroState } from 'microstate';
+import { MicroStore } from 'microstate-manager';
 import { ref, onMounted, onUnmounted } from 'vue';
 
 // Define state type
@@ -159,7 +159,7 @@ interface CounterState {
 }
 
 // Create store
-const counterStore = new MicroState<CounterState>({ count: 0 });
+const counterStore = new MicroStore<CounterState>({ count: 0 });
 
 // Counter component
 export default {
@@ -224,7 +224,7 @@ type Action =
   | { type: 'SET_COUNT'; payload: number };
 
 // Create typed store
-const store = new MicroState<CounterState, Action>(initialState);
+const store = new MicroStore<CounterState, Action>(initialState);
 
 // Type-safe dispatch
 store.dispatch({ type: 'INCREMENT' }); // OK
@@ -234,7 +234,7 @@ store.dispatch({ type: 'UNKNOWN' }); // Type Error
 
 ## API Reference
 
-### `MicroState<T>`
+### `MicroStore<T>`
 
 The main store class.
 

@@ -8,13 +8,13 @@ export default [
     {
         input: 'src/index.ts',
         output: {
-            file: 'dist/microstate.umd.js',
+            file: 'dist/microstate-manager.umd.js',
             format: 'umd',
-            name: 'MicroState',
+            name: 'MicroStateManager',
             exports: 'named',
             sourcemap: true,
             globals: {
-                'MicroState': 'MicroState'
+                'microstate-manager': 'MicroStateManager'
             }
         },
         plugins: [

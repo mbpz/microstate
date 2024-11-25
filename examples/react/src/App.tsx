@@ -1,9 +1,9 @@
 import React from 'react';
 import { useState, useEffect, useCallback } from 'react';
-import { MicroState, Store } from '@microstate';
+import { MicroStore } from 'microstate-manager';
 
 // React Hook for using MicroState
-function useMicroState<T>(store: Store<T>) {
+function useMicroState<T>(store: MicroStore<T>) {
     const [state, setState] = useState<T>(store.getState());
 
     useEffect(() => {
@@ -22,7 +22,7 @@ interface CounterState {
 }
 
 // 创建 store 实例，启用持久化
-const counterStore = new MicroState<CounterState>(
+const counterStore = new MicroStore<CounterState>(
     {
         count: 0,
         loading: false,
