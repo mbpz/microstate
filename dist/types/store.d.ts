@@ -1,14 +1,19 @@
-import { Store, Action, Listener, Middleware, Reducer } from './types';
+import { Store, Listener, Updater, Middleware } from './types';
+export interface StoreOptions<T> {
+    name?: string;
+    storage?: Storage;
+}
 export declare class MicroStore<T> implements Store<T> {
     private state;
     private listeners;
+    private options;
     private middlewares;
-    private reducers;
-    constructor(initialState: T);
+    constructor(initialState: T, options?: StoreOptions<T>);
     getState(): T;
-    dispatch(action: Action): void;
-    subscribe(listener: Listener<T>): () => void;
     use(middleware: Middleware<T>): void;
-    addReducer(reducer: Reducer<T>): void;
+    private applyMiddlewares;
+    update(updater: Updater<T>): Promise<void>;
+    subscribe(listener: Listener<T>): () => void;
     private notify;
+    clear(): void;
 }

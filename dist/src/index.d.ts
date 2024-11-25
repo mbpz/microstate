@@ -1,4 +1,4 @@
 import { MicroStore } from './store';
-import type { Store, Action, Listener, Middleware, Reducer } from './types';
-export type { Store, Action, Listener, Middleware, Reducer };
+import type { Store, Listener, Updater } from './types';
+export type { Store, Listener, Updater };
 export { MicroStore as MicroState };
